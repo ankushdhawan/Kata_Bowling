@@ -19,16 +19,6 @@ class BowlingRoll {
         self.thirdTry = thirdTry
     }
     
-    func checkEnteredKnockedPinIsValid() throws {
-        if firstTry.knockedPins > 10 {
-            throw GameError.wrongInput("knockedPins cannot be greater than total pins")
-        } else if secondTry.knockedPins > 10 {
-            throw GameError.wrongInput("knockedPins cannot be greater than total pins")
-        } else if firstTry.knockedPins + secondTry.knockedPins > 10 {
-            throw GameError.wrongInput("First Try knockedPins and secondry Try knockedPins cannot be greater than total pins")
-        }
-    }
-    
     func getScore() -> Int {
         if isStrike(firstTry) {
             return 10

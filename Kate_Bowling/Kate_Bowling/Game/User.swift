@@ -14,7 +14,8 @@ class User {
         self.bowlingFrame = bowlingFrame
         self.name = name
     }
-    func getTotalScore() -> Int {
+    func getTotalScore() throws -> Int {
+        try checkEnteredKnockedPinIsValid()
         var spareBonus = 0
         var strikeBonus = 0
         for i in 0...bowlingFrame.count - 1 {
@@ -26,6 +27,21 @@ class User {
             
         }
         return  bowlingFrame.compactMap { $0.bowlingRoll.getScore() }.reduce(0, +) + spareBonus + strikeBonus
+    }
+    
+    func checkEnteredKnockedPinIsValid() throws {
+        if bowlingFrame.count > 10 {
+            throw GameError.wrongFrameCount
+        }
+        try bowlingFrame.map { frame in
+            if frame.bowlingRoll.firstTry.knockedPins > 10 {
+                throw GameError.wrongInput("knockedPins cannot be greater than total pins")
+            } else if frame.bowlingRoll.secondTry.knockedPins > 10 {
+                throw GameError.wrongInput("knockedPins cannot be greater than total pins")
+            } else if frame.bowlingRoll.firstTry.knockedPins + frame.bowlingRoll.secondTry.knockedPins > 10 {
+                throw GameError.wrongInput("First Try knockedPins and secondry Try knockedPins cannot be greater than total pins")
+            }
+        }
     }
     
     func isSpare(_ bowlingFirstTry: BowlingTry, _ bowlingSecondTry: BowlingTry) -> Bool {
