@@ -83,4 +83,11 @@ final class KateTDD_BowlingTests: XCTestCase {
         XCTAssertGreaterThan(try user1.getTotalScore(), try user2.getTotalScore(), "User2 Score Should be greater than user1 score")
     }
 
+    func test_compareUserScore() {
+        let frame1 = BowlingFrame(bowlingRoll: BowlingRoll(firstTry: BowlingTry(knockedPins: 10), secondTry: BowlingTry(knockedPins: 0)))
+        let user1 = User(bowlingFrame: [frame1], name: "Ankush")
+        let frame2 = BowlingFrame(bowlingRoll: BowlingRoll(firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 4)))
+        let user2 = User(bowlingFrame: [frame2], name: "Vinay")
+        XCTAssertGreaterThan(try user1.getTotalScore(), try user2.getTotalScore(), "User2 Score Should be greater than user1 score")
+    }
 }
