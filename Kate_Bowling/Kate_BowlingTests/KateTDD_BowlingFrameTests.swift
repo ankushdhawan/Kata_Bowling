@@ -18,28 +18,28 @@ final class Kate_BowlingFrameTests: XCTestCase {
     }
 
     func test_singleFrameScore() {
-        var bowlingFrame = BowlingFrame(totalPins: 10, firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
-        XCTAssertEqual(bowlingFrame.getScore(), 15, "Score should be 15")
+        var bowlingRoll = BowlingRoll(firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
+        XCTAssertEqual(bowlingRoll.getScore(), 10, "Score should be 15")
     }
     
     func test_singleFrameStrikeFalseCase() {
-        var bowlingFrame = BowlingFrame(totalPins: 10, firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
-        XCTAssertFalse(bowlingFrame.isStrike(bowlingFrame.firstTry))
+        var bowlingRoll = BowlingRoll(firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
+        XCTAssertFalse(bowlingRoll.isStrike(bowlingRoll.firstTry))
     }
     
     func test_singleFrameStrikeTrueCase() {
-        var bowlingFrame = BowlingFrame(totalPins: 10, firstTry: BowlingTry(knockedPins: 10), secondTry: BowlingTry(knockedPins: 5))
-        XCTAssertTrue(bowlingFrame.isStrike(bowlingFrame.firstTry))
+        var bowlingRoll = BowlingRoll(firstTry: BowlingTry(knockedPins: 10), secondTry: BowlingTry(knockedPins: 5))
+        XCTAssertTrue(bowlingRoll.isStrike(bowlingRoll.firstTry))
     }
     
     func test_singleFrameSpareTrueCase() {
-        var bowlingFrame = BowlingFrame(totalPins: 10, firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
-        XCTAssertTrue(bowlingFrame.isSpare(bowlingFrame.firstTry, bowlingFrame.secondTry))
+        var bowlingRoll = BowlingRoll(firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 5))
+        XCTAssertTrue(bowlingRoll.isSpare(bowlingRoll.firstTry, bowlingRoll.secondTry))
     }
     
     func test_singleFrameSpareFalseCase() {
-        var bowlingFrame = BowlingFrame(totalPins: 10, firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 4))
-        XCTAssertFalse(bowlingFrame.isSpare(bowlingFrame.firstTry, bowlingFrame.secondTry))
+        var bowlingRoll = BowlingRoll(firstTry: BowlingTry(knockedPins: 5), secondTry: BowlingTry(knockedPins: 4))
+        XCTAssertFalse(bowlingRoll.isSpare(bowlingRoll.firstTry, bowlingRoll.secondTry))
     }
 
 }
