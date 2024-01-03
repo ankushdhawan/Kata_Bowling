@@ -65,6 +65,7 @@
 		10CDDCC92B4563E900BD1D58 /* KateTDD_BowlingFrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KateTDD_BowlingFrameTests.swift; sourceTree = "<group>"; };
 		10CDDCCB2B4564E900BD1D58 /* BowlingTry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingTry.swift; sourceTree = "<group>"; };
 		10CDDCCE2B4578A300BD1D58 /* BowlingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingViewModel.swift; sourceTree = "<group>"; };
+		10CDDCD02B45FF4100BD1D58 /* Kate_Bowling.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Kate_Bowling.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 		10CDDC7E2B45541900BD1D58 = {
 			isa = PBXGroup;
 			children = (
+				10CDDCD02B45FF4100BD1D58 /* Kate_Bowling.xctestplan */,
 				10CDDC892B45541900BD1D58 /* Kate_Bowling */,
 				10CDDCA02B45541B00BD1D58 /* Kate_BowlingTests */,
 				10CDDCAA2B45541B00BD1D58 /* Kate_BowlingUITests */,
