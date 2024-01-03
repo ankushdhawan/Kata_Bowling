@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class BowlingGame {
+    var users: [User]
+    init(users: [User]) {
+        self.users = users
+    }
+}

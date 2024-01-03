@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class BowlingRoll {
+    var bowlingFrame:BowlingFrame
+    init(bowlingFrame: BowlingFrame) {
+        self.bowlingFrame = bowlingFrame
+    }
+}

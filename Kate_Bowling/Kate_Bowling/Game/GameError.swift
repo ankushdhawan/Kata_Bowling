@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum GameError: Error {
+    case wrongInput(String)
+}
