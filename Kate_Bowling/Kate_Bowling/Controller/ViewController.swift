@@ -14,12 +14,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondRoll:UITextField!
     @IBOutlet weak var thirdRoll:UITextField!
     var game: BowlingGame!
+    var roundCount = 1
     var user1: User!
     override func viewDidLoad() {
         super.viewDidLoad()
         thirdRoll.isHidden = true
         user1 = User(bowlingFrame: [], name: "User1")
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        user1.bowlingFrame.removeAll()
+        firstRoll.text = ""
+        secondRoll.text = ""
+        thirdRoll.text = ""
+        score.text = "0"
+        roundCount = 1
+        thirdRoll.isHidden = true
+        titleScreen.text = "Round " + String(roundCount)
     }
     
     @IBAction func addFrameButtonTapped(_ sender: UIButton) {
@@ -30,7 +42,7 @@ class ViewController: UIViewController {
             let roll1Int: Int? = Int(firstRoll.text!)
             let roll2Int: Int? = Int(secondRoll.text!)
             let frame1 = BowlingFrame(bowlingRoll: BowlingRoll(firstTry: BowlingTry(knockedPins: roll1Int ?? 0), secondTry: BowlingTry(knockedPins: roll2Int ?? 0)))
-            if user1.bowlingFrame.count == 10 {
+            if user1.bowlingFrame.count == 9 {
                 frame1.bowlingRoll.isLastFrame = true
                 if roll1Int ?? 0  == 10 || (roll2Int ?? 0) + (roll1Int ?? 0) == 10 {
                     thirdRoll.isHidden = false
@@ -43,21 +55,22 @@ class ViewController: UIViewController {
                 }
             }
             user1.bowlingFrame.append(frame1)
-            titleScreen.text = "Frame " + String(user1.bowlingFrame.count)
             firstRoll.text = ""
             secondRoll.text = ""
             thirdRoll.text = ""
             do {
                 score.text = String(try user1.getTotalScore())
                 game = BowlingGame(users: [user1])
+                roundCount = roundCount + 1
+                if roundCount <= 10 {
+                    titleScreen.text = "Round " + String(roundCount)
+                }
             }catch GameError.wrongInput(let val){
                 showAlert(title: "Error", message: val)
                 user1.bowlingFrame.removeLast()
-                titleScreen.text = "Frame " + String(user1.bowlingFrame.count)
             }catch GameError.wrongFrameCount{
                 showAlert(title: "Error", message: "Frame cannot be more than 10")
                 user1.bowlingFrame.removeLast()
-                titleScreen.text = "Frame " + String(user1.bowlingFrame.count)
             }catch {
                 
             }

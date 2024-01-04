@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guy-HP-KP9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guy-HP-KP9">
                                 <rect key="frame" x="112.66666666666669" y="113" width="168" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="8Bi-Ec-5Az"/>
@@ -81,17 +81,31 @@
                                     <constraint firstAttribute="height" constant="150" id="4wV-9j-wU9"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUW-jz-zcC">
+                                <rect key="frame" x="301" y="59" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="FrV-yu-zJ8"/>
+                                    <constraint firstAttribute="height" constant="35" id="q7v-je-9HK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4hR-e2-FzJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GlW-j8-Rwf" secondAttribute="trailing" constant="10" id="4uw-92-kF6"/>
+                            <constraint firstItem="LUW-jz-zcC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="53S-0R-EPI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GHW-VM-Vh7" secondAttribute="trailing" constant="10" id="KR2-Yg-IoD"/>
                             <constraint firstItem="GHW-VM-Vh7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MVN-Oz-Hf3"/>
                             <constraint firstItem="guy-HP-KP9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wfd-xZ-XXf"/>
                             <constraint firstItem="GlW-j8-Rwf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="aw8-rA-xMS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GlW-j8-Rwf" secondAttribute="bottom" constant="100" id="cw0-IB-I4J"/>
                             <constraint firstItem="guy-HP-KP9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="fGh-SY-x3X"/>
+                            <constraint firstAttribute="trailing" secondItem="LUW-jz-zcC" secondAttribute="trailing" constant="17" id="qXq-FN-uOj"/>
                             <constraint firstItem="GHW-VM-Vh7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="xIL-iB-Cmt"/>
                         </constraints>
                     </view>
